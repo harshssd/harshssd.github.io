@@ -1,237 +1,733 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harsha Hassan Somashekara · Staff Software Engineer</title>
+<meta name="description" content="Harsha Hassan Somashekara (Harsha HS) — Staff Software Engineer in Seattle. Distributed systems and workflow orchestration at Coupang, Cruise, DoorDash and AWS. After hours: Hyperfocused Engineer, a studio of apps built in public.">
+<meta name="theme-color" content="#0B0A09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Harsha HS · Staff Software Engineer">
+<meta property="og:description" content="Distributed systems by day. Hyperfocused builder by night.">
+<meta property="og:url" content="https://harshssd.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A09'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%23D8954A' stroke-width='3'/%3E%3Cpath d='M32 13 L40 30 M51 32 L34 40 M32 51 L24 34 M13 32 L30 24' stroke='%23D8954A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Harsha Hassan Somashekara","alternateName":"Harsha HS","jobTitle":"Staff Software Engineer","worksFor":{"@type":"Organization","name":"Coupang"},"address":{"@type":"PostalAddress","addressLocality":"Seattle","addressRegion":"WA"},"email":"mailto:harsh.ssd@gmail.com","url":"https://harshssd.github.io/","sameAs":["https://www.linkedin.com/in/harshahs/","https://github.com/harshssd","https://hyperfocusedengineer.github.io/","https://www.youtube.com/@hyperfocusedai"],"alumniOf":"University at Buffalo, The State University of New York"}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0B0A09; --bg-2:#121110; --bg-3:#191715;
+  --ink:#EEE7DB; --ink-2:#A79F92; --ink-3:#6A635B;
+  --amber:#D8954A; --amber-dim:rgba(216,149,74,.14);
+  --pencil:#E5484D;
+  --line:rgba(238,231,219,.09); --line-2:rgba(238,231,219,.18);
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Geist',system-ui,-apple-system,sans-serif;
+  --mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gut:clamp(16px,4vw,48px);
+  --max:1180px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--amber);color:var(--bg)}
+:focus-visible{outline:1px solid var(--amber);outline-offset:4px}
 
-    <title>Harsha</title>
+/* film grain */
+body::before{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{background-position:0 0}20%{background-position:-37px 21px}40%{background-position:23px -41px}60%{background-position:-19px -9px}80%{background-position:41px 33px}100%{background-position:0 0}}
+/* vignette */
+body::after{content:"";position:fixed;inset:0;z-index:89;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55) 100%)}
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+.mono{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-    
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+/* ───────── IRIS INTRO ───────── */
+#iris{position:fixed;inset:0;z-index:200;pointer-events:auto;cursor:pointer}
+#iris svg{width:100%;height:100%;display:block}
+#iris.gone{display:none}
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
+/* ───────── VIEWFINDER HUD ───────── */
+.hud::before,.hud::after{content:"";position:absolute;left:0;right:0;height:64px;pointer-events:none}
+.hud::before{top:0;background:linear-gradient(180deg,rgba(11,10,9,.92),rgba(11,10,9,0))}
+.hud::after{bottom:0;height:calc(96px + env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(11,10,9,.97) 35%,rgba(11,10,9,0))}
+.hud .frame{z-index:1}
+.hud{position:fixed;inset:0;z-index:80;pointer-events:none;padding:calc(env(safe-area-inset-top) + 12px) calc(env(safe-area-inset-right) + 12px) calc(env(safe-area-inset-bottom) + 12px) calc(env(safe-area-inset-left) + 12px)}
+.hud .frame{position:absolute;top:calc(env(safe-area-inset-top) + 12px);right:calc(env(safe-area-inset-right) + 12px);bottom:calc(env(safe-area-inset-bottom) + 12px);left:calc(env(safe-area-inset-left) + 12px)}
+.c{position:absolute;width:22px;height:22px;border-color:var(--ink-2);border-style:solid;opacity:.55}
+.c.tl{top:0;left:0;border-width:1px 0 0 1px}.c.tr{top:0;right:0;border-width:1px 1px 0 0}
+.c.bl{bottom:0;left:0;border-width:0 0 1px 1px}.c.br{bottom:0;right:0;border-width:0 1px 1px 0}
+.plane{position:absolute;top:50%;width:10px;height:1px;background:var(--amber);opacity:.7}
+.plane.l{left:-12px}.plane.r{right:-12px}
+.hud .row{position:absolute;left:32px;right:32px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--ink-2)}
+.hud .top{top:2px}.hud .bot{bottom:2px}
+.hud .mono{font-size:10px;letter-spacing:.16em}
+.rec{display:inline-flex;align-items:center;gap:8px}
+.rec i{width:6px;height:6px;border-radius:50%;background:var(--pencil);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.hud nav{display:flex;gap:22px;pointer-events:auto}
+.hud nav a{color:var(--ink-3);transition:color .3s}
+.hud nav a:hover,.hud nav a.on{color:var(--ink)}
+.fstop{pointer-events:auto;cursor:pointer;background:none;border:1px solid var(--line-2);color:var(--ink);padding:5px 9px;border-radius:999px;font:inherit;letter-spacing:inherit;text-transform:inherit;transition:border-color .3s,color .3s}
+.fstop:hover{border-color:var(--amber);color:var(--amber)}
+.readout b{color:var(--amber);font-weight:400}
+.scale{display:flex;align-items:flex-end;gap:10px}
+.scale .ticks{position:relative;width:150px;height:16px;background:repeating-linear-gradient(90deg,var(--ink-3) 0 1px,transparent 1px 10px);mask:linear-gradient(0deg,#000 0 6px,transparent 6px);-webkit-mask:linear-gradient(0deg,#000 0 6px,transparent 6px)}
+.scale .ticks-wrap{position:relative}
+.scale .needle{position:absolute;bottom:0;width:1px;height:14px;background:var(--amber);left:0;transition:left .15s linear}
+.scale .lbl{display:flex;justify-content:space-between;width:150px;font-size:9px;color:var(--ink-3);margin-bottom:3px}
 
-  <body>
+/* ───────── DEPTH OF FIELD ───────── */
+[data-f]{--d:0;filter:blur(calc(var(--d) * 2.8px));opacity:calc(1 - var(--d) * .55);transition:filter .25s linear,opacity .25s linear}
+html.deep [data-f]{filter:none;opacity:1}
 
+/* ───────── HERO ───────── */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:110px;padding-bottom:60px;position:relative}
+.hero>*{position:relative;z-index:1}
+.hero>.lens{position:absolute;z-index:0;right:-220px;top:46%;width:min(64vw,780px);aspect-ratio:1;transform:translateY(-50%);opacity:.0;pointer-events:none;transition:opacity 2s 1.2s}
+.ready .hero>.lens{opacity:.42}
+.lens svg{width:100%;height:100%;overflow:visible}
+.lens .spin{transform:rotate(var(--rot,0deg));transform-origin:0 0;transition:transform .2s linear}
+.lens .spin2{transform:rotate(calc(var(--rot,0deg) * -0.6));transform-origin:0 0;transition:transform .2s linear}
+.eyebrow{color:var(--amber);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--amber)}
+.name{font-family:var(--serif);font-weight:400;line-height:.86;letter-spacing:-.02em;margin:28px 0 30px}
+.name .a{display:block;font-size:clamp(84px,19vw,236px)}
+.name .b{display:block;font-style:italic;font-size:clamp(34px,7.2vw,92px);color:var(--ink-2);letter-spacing:-.01em;margin-top:.12em}
+.name .ch{display:inline-block;opacity:0;filter:blur(18px);transform:scale(1.08)}
+.ready .name .ch{animation:pull 1.25s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 45ms + 120ms)}
+@keyframes pull{60%{filter:blur(1px)}100%{opacity:1;filter:blur(0);transform:none}}
+.lede{max-width:640px;font-size:clamp(18px,2.1vw,23px);line-height:1.5;color:var(--ink-2)}
+.lede em{font-family:var(--serif);font-size:1.18em;color:var(--ink);font-style:italic}
+.fade{opacity:0;transform:translateY(14px)}
+.ready .fade{animation:up .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--t,1s)}
+@keyframes up{to{opacity:1;transform:none}}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border:1px solid var(--line-2);border-radius:999px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:all .3s}
+.btn:hover{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.btn.solid{background:var(--amber);border-color:var(--amber);color:var(--bg)}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink)}
+.btn svg{width:13px;height:13px}
 
-    <div class="container">
-    	<div class="col-lg-6 col-lg-offset-3">
-    	
-    		<!-- ===== vCard Navigation ===== -->
-    		<div class="row w">
-    			<div class="col-md-4">
-    				<img class="img-responsive" src="assets/img/Harsha.jpg" alt="">
-    				<!--avatar.jpg" alt="">-->
-					<ul class="nav nav-tabs nav-stacked" id="myTab">
-					  <li class="active"><a href="#about">About</a></li>
-					  <li><a href="#profile">Profile</a></li>
-					  <li><a href="#academics">Academics</a></li>
-                      <li><a href="#projects">Projects</a></li>
-					  <li><a href="#contact">Contact</a></li>
-					</ul>    			
-				</div><!-- col-md-4 -->
+/* EXIF strip */
+.exif{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:70px}
+.exif div{padding:22px 16px 20px;border-left:1px solid var(--line)}
+.exif div:first-child{border-left:0;padding-left:0}
+.exif .k{color:var(--ink-3);font-size:10px;margin-bottom:12px;display:block}
+.exif .v{font-family:var(--serif);font-size:clamp(34px,3.4vw,46px);line-height:1;color:var(--ink);display:block;white-space:nowrap}
+.exif .v small{font-size:.5em;color:var(--ink-2);margin-left:2px}
+.exif .s{display:block;margin-top:10px;font-size:13px;color:var(--ink-2);line-height:1.4}
 
-    		<!-- ===== vCard Content ===== -->
-    			<div class="col-md-8">
-	    			<div class="tab-content">
-	    			
-	    			  <!-- ===== First Tab ===== -->
-					  <div class="tab-pane active" id="about">
-					  	<h3>Harsha HS</h3>
-					  	<h5>Software Professional</h5>
-					  	<hr>
-					  	<p>Software Developer with a passion to develop softwares which makes an impact on the day to day life of people.</p>
-					  	<p> Interested in developing mobile, web, cloud and data driven applications.</p>
-<!--					  	<p class="pull-right red"><i class="icon-heart"></i></p>-->
-                          <h5 class="text-center"><a href="Harsha_Resume.pdf">Curriculum Vitae</a></h5>
-					  </div><!-- tab about -->
-					  
-	    			  <!-- ===== Second Tab ===== -->
-					  <div class="tab-pane" id="profile">
-					  	<h4><i class="icon-briefcase"></i> Job Experience</h4>
-					  	<p class="sm">
-					  		<grey>Amazon.com</grey> | Software Development Engineer<br/>
-					  		<grey>Cengage Learning</grey> | Software Developer Intern<br/>
-                            				<grey>SAP LABS</grey> | SAP ABAP Consultant<br/>
-					  		<grey>Tricon Infotech</grey> | Senior Software Developer<br/>
-					  	</p>
-					  
-						  <h4><i class="icon-file-text-alt"></i> Education</h4>
-					  	<p class="sm">
-					  		<grey>Master of Science</grey> | University at Buffalo, The State University of New York, GPA: 3.74<br/>
-					  		<grey>Bachelor of Engineering</grey> | Visveswaraya Technological University<br/>
-					  	</p>
-					  	
-<!--
-						  <h4><i class="icon-trophy"></i> Awards</h4>
-					  	<p class="sm">
-					  		<grey>Best Web Design</grey> | Black Tie Site.<br/>
-					  		<grey>Designer of the Year</grey> | 2012.<br/>
-					  	</p>
--->
-					  </div><!-- Tab Profile -->
-					  
-	    			  <!-- ===== Third Tab ===== -->
-					  <div class="tab-pane" id="academics">
-                          <h4><i></i>Academic Projects</h4>
-                          <p><em>Project 1: Rate My Apparel (Parse.com and Facebook APIs)</em>
+/* ───────── SECTIONS ───────── */
+section{position:relative}
+.sec{padding-top:clamp(90px,13vw,170px)}
+.sh{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.sh .num{color:var(--amber);padding-bottom:12px;border-bottom:1px solid var(--amber);align-self:end}
+.sh h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,7vw,96px);line-height:.95;letter-spacing:-.02em}
+.sh h2 em{color:var(--ink-2)}
+.sh p{grid-column:2;max-width:620px;color:var(--ink-2);font-size:17px;margin-top:-8px}
 
-                          Android Application using Google App Engine Cloud Store as backend and integrated with Facebook.</p>
+/* NOW (Coupang) */
+.now{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,70px);align-items:start}
+.now h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,44px);line-height:1.08;margin:14px 0 20px}
+.now h3 em{color:var(--amber)}
+.now p{color:var(--ink-2);font-size:17px;max-width:560px}
+.now p+p{margin-top:14px}
+.now p strong{color:var(--ink);font-weight:400}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.facts div{background:var(--bg);padding:18px}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.05;color:var(--ink)}
+.facts span{display:block;font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.4}
+.diagram{border:1px solid var(--line);background:linear-gradient(180deg,var(--bg-2),var(--bg));padding:18px;position:relative}
+.diagram .mono{color:var(--ink-3);font-size:10px;display:flex;justify-content:space-between}
+.diagram svg{width:100%;height:auto;display:block;margin:10px 0 6px}
+.diagram figcaption{font-size:13.5px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:12px;line-height:1.5}
 
-                          <p><em>Project 2: SAP ABAP Tutor (HTML5 and Jquery Mobile)</em>
+/* CAREER */
+.roles{border-top:1px solid var(--line)}
+.role{border-bottom:1px solid var(--line)}
+.role summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:180px 1.1fr 1.3fr 28px;gap:28px;align-items:baseline;padding:28px 0}
+.role summary::-webkit-details-marker{display:none}
+.role .yr{color:var(--ink-3)}
+.role .co{font-family:var(--serif);font-size:clamp(34px,4.2vw,54px);line-height:1;letter-spacing:-.01em;transition:color .3s}
+.role .co small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:12px}
+.role .hl{font-size:17px;color:var(--ink-2);line-height:1.45}
+.role .pm{width:28px;height:28px;border:1px solid var(--line-2);border-radius:50%;position:relative;align-self:center;transition:all .3s}
+.role .pm::before,.role .pm::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:var(--ink-2);transform:translate(-50%,-50%);transition:transform .3s}
+.role .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.role[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.role summary:hover .co,.role[open] .co{color:var(--amber)}
+.role summary:hover .pm{border-color:var(--amber)}
+.role .body{display:grid;grid-template-columns:180px 1fr;gap:28px;padding:0 0 34px}
+.role ul{grid-column:2;list-style:none;max-width:780px}
+.role li{position:relative;padding:0 0 12px 22px;color:var(--ink-2);font-size:16px}
+.role li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:1px;background:var(--amber)}
+.role li strong{color:var(--ink);font-weight:400}
+.tags{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-2);border:1px solid var(--line);padding:5px 9px;border-radius:999px}
 
-                          Android Application in which I have implemented customized web views including study materials, quizzes and query section.</p>
+/* WORKSHOP — contact sheet */
+.sheet{background:#0F0E0D;border:1px solid var(--line);padding:0 clamp(10px,2vw,22px);position:relative}
+.sprocket{height:30px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--amber);opacity:.75;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;position:relative}
+.sprocket::before{content:"";position:absolute;inset:9px 0;background:radial-gradient(circle at 50% 50%,var(--bg) 0 0) ;background:repeating-linear-gradient(90deg,transparent 0 10px,#1E1C1A 10px 22px,transparent 22px 28px);border-radius:2px;opacity:.9;z-index:0}
+.sprocket span{position:relative;z-index:1;background:#0F0E0D;padding:0 8px}
+.frames{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,18px)}
+.fr{position:relative;display:flex;flex-direction:column;background:var(--bg-2);border:1px solid var(--line);transition:border-color .35s,transform .35s;isolation:isolate}
+.fr:hover{border-color:var(--line-2);transform:translateY(-3px)}
+.fr .pic{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bg-3)}
+.fr .pic img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.85)}
+.fr:hover .pic img{transform:scale(1.05);filter:saturate(1.05)}
+.fr .pic.icon img{object-fit:contain;padding:22%;object-position:center}
+.fr .pic.type{display:flex;align-items:flex-end;padding:16px;background:var(--g)}
+.fr .pic.type b{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(34px,4vw,52px);line-height:.95;color:rgba(255,255,255,.92);mix-blend-mode:normal}
+.fr .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,10,9,.65));pointer-events:none}
+.fr .fn{position:absolute;top:8px;left:10px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--amber);text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.fr .meta{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.fr h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05}
+.fr .ty{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.fr p{font-size:14px;color:var(--ink-2);line-height:1.45}
+.st{margin-top:auto;padding-top:10px;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.st i{width:6px;height:6px;border-radius:50%;background:var(--ink-3)}
+.st.live{color:#4ADE80}.st.live i{background:#4ADE80;box-shadow:0 0 10px #4ADE80}
+.st.beta{color:var(--amber)}.st.beta i{background:var(--amber);animation:blink 2s infinite}
+/* grease pencil */
+.pencil{position:absolute;inset:-10px -8px;z-index:3;pointer-events:none;overflow:visible;width:calc(100% + 16px);height:calc(100% + 20px)}
+.pencil path{fill:none;stroke:var(--pencil);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.92;transition:stroke-dashoffset .9s cubic-bezier(.6,.1,.3,1)}
+.fr:hover .pencil path,.fr.pick.seen .pencil path{stroke-dashoffset:0}
+.fr .x{position:absolute;right:10px;top:8px;z-index:4;font-family:'Instrument Serif',serif;font-style:italic;color:var(--pencil);font-size:20px;opacity:0;transform:rotate(-8deg) scale(.8);transition:all .4s .6s}
+.fr.pick.seen .x{opacity:1;transform:rotate(-8deg)}
+.sheet-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;color:var(--ink-3)}
+.sheet-foot a{color:var(--ink-2);border-bottom:1px solid var(--line-2);transition:all .3s}
+.sheet-foot a:hover{color:var(--amber);border-color:var(--amber)}
 
-                          <p><em>Project 3: Exploratory Data Analysis using R</em>
+/* SIGNAL */
+.signal{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,70px);align-items:start}
+.quote{font-family:var(--serif);font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-.01em}
+.quote em{color:var(--amber)}
+.signal .sub{color:var(--ink-2);font-size:17px;margin-top:22px;max-width:480px}
+.chips3{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.chips3 b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
+.chips3 span{font-size:12.5px;color:var(--ink-2)}
+.links{border-top:1px solid var(--line)}
+.lk{display:grid;grid-template-columns:44px 1fr auto;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);transition:padding .35s}
+.lk:hover{padding-left:10px}
+.lk .ic{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .3s}
+.lk:hover .ic{background:var(--pencil);border-color:var(--pencil)}
+.lk .ic svg{width:14px;height:14px;fill:var(--ink)}
+.lk h4{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.15}
+.lk p{font-size:14px;color:var(--ink-2);margin-top:2px}
+.lk .ar{color:var(--ink-3);font-family:var(--mono);font-size:12px;transition:all .3s}
+.lk:hover .ar{color:var(--amber);transform:translateX(4px)}
 
-                          Performed analysis of a sports data set and plotted different visualizations including geo-location
+/* TOOLKIT */
+.kit{border-top:1px solid var(--line)}
+.kit .r{display:grid;grid-template-columns:180px 1fr;gap:28px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.kit .r .mono{color:var(--ink-3)}
+.kit .r div{font-size:clamp(17px,1.9vw,21px);color:var(--ink-2);line-height:1.55}
+.kit .r div b{color:var(--ink);font-weight:400}
+.kit .r div i{font-style:normal;color:var(--ink-3);margin:0 .45em}
+.edu{display:grid;grid-template-columns:180px 1fr 1fr;gap:28px;margin-top:44px}
+.edu .mono{color:var(--amber)}
+.edu h4{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1}
+.edu p{color:var(--ink-2);font-size:14.5px;margin-top:6px}
 
-                          mapping.</p>
+/* CONTACT */
+.contact{padding-top:clamp(110px,15vw,200px)}
+.big{font-family:var(--serif);font-weight:400;font-size:clamp(54px,10.5vw,150px);line-height:.92;letter-spacing:-.025em}
+.big em{color:var(--ink-2)}
+.mail{display:inline-flex;align-items:center;gap:16px;margin-top:40px;font-family:var(--serif);font-style:italic;font-size:clamp(28px,4.4vw,56px);border-bottom:1px solid var(--line-2);padding-bottom:6px;transition:all .35s}
+.mail:hover{color:var(--amber);border-color:var(--amber)}
+.mail span{font-family:var(--mono);font-style:normal;font-size:.32em;color:var(--amber);transition:transform .35s}
+.mail:hover span{transform:translate(4px,-4px)}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+footer{margin-top:clamp(90px,12vw,150px);padding:26px 0 calc(64px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--ink-3)}
 
-                          <p><em>Project 4: Big Data Content Retrieval, Storage and Analysis using Hadoop 2( Mapreduce Java)</em>
+/* ───────── RESPONSIVE ───────── */
+@media (max-width:1020px){
+  .frames{grid-template-columns:repeat(3,1fr)}
+  .exif{grid-template-columns:repeat(3,1fr)}
+  .exif div:nth-child(4){border-left:0;padding-left:0}
+  .exif div:nth-child(n+4){border-top:1px solid var(--line)}
+  .hud nav{display:none}
+}
+@media (max-width:820px){
+  .sh{grid-template-columns:1fr;gap:18px}
+  .sh .num{justify-self:start;padding-right:30px}
+  .sh p{grid-column:1;margin-top:0}
+  .now,.signal{grid-template-columns:1fr}
+  .role summary{grid-template-columns:1fr 28px;gap:10px 16px;padding:24px 0}
+  .role .yr{grid-column:1;order:-1}
+  .role .co{grid-column:1}
+  .role .pm{grid-column:2;grid-row:1 / span 2}
+  .role .hl{grid-column:1 / -1}
+  .role .body{grid-template-columns:1fr}
+  .role ul,.tags{grid-column:1}
+  .kit .r{grid-template-columns:1fr;gap:6px}
+  .edu{grid-template-columns:1fr;gap:20px}
+}
+@media (max-width:640px){
+  .frames{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(-1 * clamp(10px,2vw,22px));padding:4px clamp(10px,2vw,22px) 6px;scrollbar-width:none}
+  .frames::-webkit-scrollbar{display:none}
+  .fr{flex:0 0 72%;scroll-snap-align:center}
+  .frames{padding-top:14px;padding-bottom:14px}
+  .pencil{top:-6px;left:-5px;width:calc(100% + 10px);height:calc(100% + 12px)}
+  .exif{grid-template-columns:repeat(2,1fr)}
+  .exif div{padding:18px 12px 16px}
+  .exif div:nth-child(odd){border-left:0;padding-left:0}
+  .exif div:nth-child(4){border-left:1px solid var(--line);padding-left:12px}
+  .exif div:nth-child(n+3){border-top:1px solid var(--line)}
+  .facts b{font-size:27px}
+  .hud .row{left:28px;right:28px}
+  .hud .scale{display:none}
+  .hero{padding-top:96px}
+  .hero>.lens{right:-52%;top:30%;width:118vw}
+  .ready .hero>.lens{opacity:.2}
+  .lk{grid-template-columns:40px 1fr;}
+  .lk .ar{display:none}
+  .lk .ic{width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .name .ch,.fade{opacity:1!important;filter:none!important;transform:none!important}
+  html{scroll-behavior:auto}
+  [data-f]{filter:none;opacity:1}
+}
+</style>
+</head>
+<body>
 
-                          Implemented co-occurrence algorithm(“Strips”, “Pairs”), K-Means and Shortest path algorithm for Twitter
+<!-- Aperture intro -->
+<div id="iris" aria-hidden="true"><svg id="irisSvg"></svg></div>
 
-                          data.</p>
+<!-- Viewfinder HUD -->
+<div class="hud" aria-hidden="false">
+  <div class="frame">
+    <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
+    <span class="plane l"></span><span class="plane r"></span>
+    <div class="row top mono">
+      <span class="rec"><i></i>Harsha HS</span>
+      <nav aria-label="Sections">
+        <a href="#now" data-nav="now">Now</a><a href="#career" data-nav="career">Career</a><a href="#workshop" data-nav="workshop">Workshop</a><a href="#signal" data-nav="signal">Signal</a><a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+      <span id="clock">SEA --:--</span>
+    </div>
+    <div class="row bot mono">
+      <span class="readout">Focus · <b id="focusName">00 Intro</b></span>
+      <div class="scale" aria-hidden="true">
+        <div class="ticks-wrap"><div class="lbl"><span>0.3</span><span>1</span><span>3</span><span>10</span><span>∞</span></div><div class="ticks"></div><span class="needle" id="needle"></span></div>
+      </div>
+      <button class="fstop mono" id="fstop" title="Toggle depth of field" aria-label="Toggle depth-of-field blur">f/1.4</button>
+    </div>
+  </div>
+</div>
 
-						  <!--<div class="row">-->
-							  <!--<div class="col-xs-6 centered">-->
-							  	<!--<img class="img-responsive" src="assets/img/p01.png" alt="">-->
-							  	<!--<a href="#"><h6><i class="icon-link"></i> Project Name</h6></a>-->
-							  <!--</div>&lt;!&ndash; col-xs-6 &ndash;&gt;-->
-							  <!--<div class="col-xs-6 centered">-->
-							  	<!--<img class="img-responsive" src="assets/img/p02.png" alt="">-->
-							  	<!--<a href="#"><h6><i class="icon-link"></i> Project Name</h6></a>-->
-							  <!--</div>&lt;!&ndash; col-xs-6 &ndash;&gt;-->
-						  <!--</div>&lt;!&ndash; row &ndash;&gt;-->
-						  <!---->
-						  <!--<div class="row">-->
-						  	<!--<br>	-->
-							  <!--<div class="col-xs-6 centered">-->
-							  	<!--<img class="img-responsive" src="assets/img/p03.png" alt="">-->
-							  	<!--<a href="#"><h6><i class="icon-link"></i> Project Name</h6></a>-->
-							  <!--</div>&lt;!&ndash; col-xs-6 &ndash;&gt;-->
-							  <!--<div class="col-xs-6 centered">-->
-							  	<!--<img class="img-responsive" src="assets/img/p04.png" alt="">-->
-							  	<!--<a href="#"><h6><i class="icon-link"></i> Project Name</h6></a>-->
-							  <!--</div>&lt;!&ndash; col-xs-6 &ndash;&gt;-->
-						  <!--</div>&lt;!&ndash; row &ndash;&gt;-->
-					  </div><!-- /Tab Portfolio -->
+<main>
+<!-- ───────── HERO ───────── -->
+<header class="wrap hero" data-sec="00 Intro" id="top">
+  <div class="lens" aria-hidden="true"><svg viewBox="-320 -320 640 640" id="lensSvg"></svg></div>
+  <div class="eyebrow mono fade" style="--t:.3s">Staff Software Engineer <span style="color:var(--ink-3)">/</span> Seattle, WA</div>
+  <h1 class="name" aria-label="Harsha Hassan Somashekara">
+    <span class="a" data-split>Harsha</span>
+    <span class="b" data-split>Hassan Somashekara</span>
+  </h1>
+  <p class="lede fade" style="--t:1.1s">I design the orchestration layers that move <em>millions</em> of orders, vehicles and requests a day — then go home and ship apps, one obsession at a time. <em>Distributed systems by day. Hyperfocused builder by night.</em></p>
+  <div class="cta fade" style="--t:1.3s">
+    <a class="btn solid" href="mailto:harsh.ssd@gmail.com">Say hello <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+    <a class="btn" href="#workshop">See the work</a>
+    <a class="btn" href="https://www.linkedin.com/in/harshahs/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
 
-                      <!-- ===== Fourth Tab ===== -->
-                      <div class="tab-pane" id="projects">
-                      	
-                          <h4><i></i>Work Experience</h4>
+  <div class="exif fade" style="--t:1.5s" data-f>
+    <div><span class="k mono">EXP·01 Impact</span><span class="v">$<span data-count="700">0</span><small>M</small></span><span class="s">annualized savings unlocked at Coupang</span></div>
+    <div><span class="k mono">EXP·02 Scale</span><span class="v"><span data-count="8">0</span><small>M+</small></span><span class="s">workflow requests a day on Temporal</span></div>
+    <div><span class="k mono">EXP·03 Reach</span><span class="v">~<span data-count="100">0</span></span><span class="s">microservices traced end to end</span></div>
+    <div><span class="k mono">EXP·04 Leverage</span><span class="v"><span data-count="150">0</span><small>+</small></span><span class="s">AWS teams on a platform I built</span></div>
+    <div><span class="k mono">EXP·05 Craft</span><span class="v"><span data-count="12">0</span></span><span class="s">indie products, 4 live in the App Store</span></div>
+    <div><span class="k mono">EXP·06 Range</span><span class="v"><span data-count="15">0</span><small>yrs</small></span><span class="s">shipping software, Bangalore to Seattle</span></div>
+  </div>
+</header>
 
-                          <h5><em>Amazon, Seattle, WA</em></h5>
-                          <p><em>Project1 - Working on Advertizing Platform</em>
+<!-- ───────── NOW ───────── -->
+<section id="now" class="sec wrap" data-sec="01 Now">
+  <div class="sh" data-f>
+    <span class="num mono">01 — Now</span>
+    <h2>In focus <em>right now</em></h2>
+  </div>
+  <div class="now">
+    <div data-f>
+      <span class="mono" style="color:var(--amber)">Coupang · Staff Software Engineer · Fulfillment Tech · 2025 —</span>
+      <h3>Many fulfillment centers. <em>One box</em> at your door.</h3>
+      <p>I architected and shipped <strong>Cross-FC Consolidation (CFCC)</strong> from scratch: a logistics routing engine that breaks an order into shipments, then brings items from several fulfillment centers back together into a single parcel.</p>
+      <p>Underneath it, I moved complex workflows off Kafka choreography onto <strong>Temporal</strong> — nested orchestration across four core systems, five state machines, twenty-plus status codes and sub-second compensation — designed so eight engineers could build in parallel against one shared spec.</p>
+      <div class="facts">
+        <div><b>2.8M</b><span>orders a day consolidated — 40% of total volume</span></div>
+        <div><b>~$700M</b><span>a year in savings (₩900B), 700–1,100 KRW per order</span></div>
+        <div><b>8M+</b><span>daily requests through the Forward &amp; Cancel flows, KR + TW</span></div>
+        <div><b>5 teams</b><span>aligned on one spec and a phased launch, on schedule</span></div>
+      </div>
+    </div>
+    <figure class="diagram" data-f>
+      <div class="mono"><span>Fig. 1 — CFCC, simplified</span><span>live</span></div>
+      <svg viewBox="0 0 420 300" role="img" aria-label="Items from three fulfillment centers flow through a Temporal orchestrator into one box">
+        <defs>
+          <path id="p1" d="M70 60 C 160 60, 160 150, 222 150"/>
+          <path id="p2" d="M70 150 L 222 150"/>
+          <path id="p3" d="M70 240 C 160 240, 160 150, 222 150"/>
+          <path id="p4" d="M262 150 L 352 150"/>
+        </defs>
+        <g fill="none" stroke="rgba(238,231,219,.16)" stroke-width="1">
+          <use href="#p1"/><use href="#p2"/><use href="#p3"/>
+        </g>
+        <use href="#p4" stroke="#D8954A" stroke-width="1.2" stroke-dasharray="3 5" fill="none"/>
+        <g font-family="Geist Mono, monospace" font-size="9" letter-spacing="1.5" fill="#A79F92">
+          <g><rect x="22" y="40" width="48" height="40" fill="#121110" stroke="rgba(238,231,219,.25)"/><text x="46" y="64" text-anchor="middle">FC·A</text></g>
+          <g><rect x="22" y="130" width="48" height="40" fill="#121110" stroke="rgba(238,231,219,.25)"/><text x="46" y="154" text-anchor="middle">FC·B</text></g>
+          <g><rect x="22" y="220" width="48" height="40" fill="#121110" stroke="rgba(238,231,219,.25)"/><text x="46" y="244" text-anchor="middle">FC·C</text></g>
+          <circle cx="242" cy="150" r="30" fill="#121110" stroke="#D8954A"/>
+          <circle cx="242" cy="150" r="38" fill="none" stroke="rgba(216,149,74,.35)" stroke-dasharray="2 4">
+            <animateTransform attributeName="transform" type="rotate" from="0 242 150" to="360 242 150" dur="18s" repeatCount="indefinite"/>
+          </circle>
+          <text x="242" y="147" text-anchor="middle" fill="#EEE7DB" font-size="8.5">TEMPORAL</text>
+          <text x="242" y="160" text-anchor="middle" font-size="7.5">5 FSMs</text>
+          <g transform="translate(352 126)">
+            <path d="M0 12 L24 0 L48 12 L48 40 L24 52 L0 40 Z" fill="#121110" stroke="#EEE7DB" stroke-width="1"/>
+            <path d="M0 12 L24 24 L48 12 M24 24 L24 52" fill="none" stroke="rgba(238,231,219,.4)"/>
+          </g>
+          <text x="376" y="200" text-anchor="middle">1 BOX</text>
+          <text x="242" y="215" text-anchor="middle" font-size="8">FEX · FO · WMS-OB · WMS-IB</text>
+        </g>
+        <g fill="#D8954A">
+          <circle r="3.2"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0s"><mpath href="#p1"/></animateMotion></circle>
+          <circle r="3.2"><animateMotion dur="2.6s" repeatCount="indefinite" begin=".9s"><mpath href="#p2"/></animateMotion></circle>
+          <circle r="3.2"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#p3"/></animateMotion></circle>
+          <circle r="3.2" opacity=".6"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.3s"><mpath href="#p1"/></animateMotion></circle>
+          <circle r="3.2" opacity=".6"><animateMotion dur="2.6s" repeatCount="indefinite" begin="2.2s"><mpath href="#p3"/></animateMotion></circle>
+        </g>
+        <circle r="5" fill="#EEE7DB"><animateMotion dur="1.3s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+      </svg>
+      <figcaption>Items from three fulfillment centers, one orchestrated workflow, one parcel. Less packaging, fewer trucks, a lighter doorstep.</figcaption>
+    </figure>
+  </div>
+</section>
 
-                          <h5><em>Cengage Learning, Farmington Hills, MI, USA</em></h5>
-                          <p><em>Project1 - Lean Coffee Meeting Facilitator Application :</em>
-                          Developed a real time, collaborative application to conduct meeting and keep track of the meetings and performed analysis on the same. Got to explore
-                          NodeJS and Express, MongoDB and Mongoose, AngularJS and JQuery</p>
+<!-- ───────── CAREER ───────── -->
+<section id="career" class="sec wrap" data-sec="02 Career">
+  <div class="sh" data-f>
+    <span class="num mono">02 — Career</span>
+    <h2>Fifteen years, <em>in sequence</em></h2>
+    <p>Platforms other engineers build on: workflow engines, fleet backbones, test infrastructure, control planes. Tap a frame to develop it.</p>
+  </div>
+  <div class="roles">
+    <details class="role" data-f open>
+      <summary><span class="yr mono">2025 — Now</span><span class="co">Coupang<small>Staff SWE · Fulfillment Tech</small></span><span class="hl">Built Cross-FC Consolidation from zero to ~$700M a year in savings.</span><span class="pm"></span></summary>
+      <div class="body"><ul>
+        <li>Architected the <strong>CFCC platform</strong> and the Spring Boot fulfillment orchestration layer from scratch.</li>
+        <li>Migrated workflows from Kafka choreography to <strong>Temporal</strong>; led the Forward and Cancel flows at 8M+ requests a day across Korea and Taiwan.</li>
+        <li>Nested orchestration across FEX, FO, WMS-OB and WMS-IB — 5 state machines, 20+ status codes, sub-second compensation.</li>
+        <li>Aligned 5 cross-functional teams through technical specs and daily syncs; closed a critical integration stream on schedule.</li>
+      </ul><div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Temporal</span><span class="tag">Kafka</span><span class="tag">State machines</span></div></div>
+    </details>
+    <details class="role" data-f>
+      <summary><span class="yr mono">2022 — 2025</span><span class="co">Cruise<small>Lead SWE · Fleet</small></span><span class="hl">The real-time source of truth for every robotaxi's state.</span><span class="pm"></span></summary>
+      <div class="body"><ul>
+        <li>Built the <strong>vehicle state sync backend</strong> in Go on Pub/Sub — the source of truth for ride-hail dispatch, delivery and operator dashboards.</li>
+        <li>Led the deprecation of MIDAS, mapping vehicle states onto <strong>GM's Oracle eAM</strong> through event-driven integrations.</li>
+        <li>Pivoted facility ingress/egress away from federated GraphQL to targeted services — fewer hops, less to maintain.</li>
+        <li>Centralized localization across vehicle hardware, cloud and production systems; rebuilt the Jumpstart operator tool in React + Go.</li>
+        <li>Built a pre-production testing layer with the AV team (AVBot) to simulate vehicle behavior without physical cars.</li>
+      </ul><div class="tags"><span class="tag">Go</span><span class="tag">Google Pub/Sub</span><span class="tag">React</span><span class="tag">GraphQL</span><span class="tag">Oracle eAM</span></div></div>
+    </details>
+    <details class="role" data-f>
+      <summary><span class="yr mono">2021 — 2022</span><span class="co">DoorDash<small>Senior SWE · DevProd</small></span><span class="hl">Made it safe to test in production, across ~100 services.</span><span class="pm"></span></summary>
+      <div class="body"><ul>
+        <li>Rolled out <strong>OpenTelemetry context propagation</strong> across nearly 100 microservices to create an isolated test tenancy.</li>
+        <li>Designed the <strong>Test Actor Service</strong> (Kotlin, EKS): pools of synthetic actors that let teams — and partners like Chipotle — test against the live network.</li>
+        <li>Wired experimentation into the test platform so every feature-flag path could be exercised safely in production.</li>
+      </ul><div class="tags"><span class="tag">Kotlin</span><span class="tag">OpenTelemetry</span><span class="tag">AWS EKS</span><span class="tag">Multi-tenancy</span></div></div>
+    </details>
+    <details class="role" data-f>
+      <summary><span class="yr mono">2016 — 2021</span><span class="co">AWS<small>SDE · App Runner &amp; Console</small></span><span class="hl">Founding engineer of App Runner and author of its control plane.</span><span class="pm"></span></summary>
+      <div class="body"><ul>
+        <li>Wrote the <strong>App Runner control plane</strong> that provisions customer compute.</li>
+        <li>Invented <strong>shadow account management</strong>: a warm pool of AWS accounts, accounted to the limit, for instant runtime creation.</li>
+        <li>Built the multi-tenant CI/CD layer (CodeBuild, CodePipeline) and App Runner's CloudFormation + Copilot CLI support.</li>
+        <li>Built a self-service config platform used by <strong>150+ service teams</strong>, decoupling console metadata from Tier-0 services.</li>
+        <li>Staged, bake-timed global config rollouts on SQS + Lambda; console search on Elasticsearch; asset versioning on S3, CloudFront and DynamoDB.</li>
+      </ul><div class="tags"><span class="tag">Java</span><span class="tag">Spring</span><span class="tag">CloudFormation</span><span class="tag">DynamoDB</span><span class="tag">SQS · Lambda</span><span class="tag">React</span></div></div>
+    </details>
+    <details class="role" data-f>
+      <summary><span class="yr mono">2015 — 2016</span><span class="co">Amazon<small>SDE · Advertising</small></span><span class="hl">Campaign scheduling and ad-slot selection for merchandise ads.</span><span class="pm"></span></summary>
+      <div class="body"><ul>
+        <li>Built demand-side systems for scheduling ad campaigns in React and Java Spring, and an integrated product catalog for picking ad slots.</li>
+      </ul><div class="tags"><span class="tag">Java Spring</span><span class="tag">React</span></div></div>
+    </details>
+    <details class="role" data-f>
+      <summary><span class="yr mono">2011 — 2013</span><span class="co">SAP Labs<small>Software Engineer · Bangalore</small></span><span class="hl">Where it started: localization and legal reporting for global ERP.</span><span class="pm"></span></summary>
+      <div class="body"><ul>
+        <li>Built country localizations, tax and legal reporting on SAP — Qatar, Saudi Arabia, Spain and Portugal — plus HANA data modelling.</li>
+      </ul><div class="tags"><span class="tag">ABAP</span><span class="tag">SAP HANA</span></div></div>
+    </details>
+  </div>
+</section>
 
-                          <h5><em>SAP LABS, Bangalore, India</em></h5>
-                          <p><em>Project 1 - GS HANA (Development) : </em>SAP HANA data modeling, SQL Scripting, Data Provisioning by
-                          using System Landscape Transformation (SLT) method.</p>
-                          <p><em>Project 2 - MENA (Development) :</em>
-                              <p>Worked on localizations of Qatar and KSA.</p>
-                              <ol>
-                                <li>developed new transaction screens</li>
-                                <li>developed workflows for approvals of Invoice (Expenditure order)</li>
-                                <li>developed Payment request and Payment (Payment order) posting</li>
-                                <li>developed country specific financial report programs</li>
-                                <li>developed Tax Calculation programs(Withholding Tax and Corporate Tax) related to Qatar</li>
-                                <li>enhanced vendor master creation program to add extra fields specific to add Qatar Tax Card details</li>
-                              </ol>
-                          </p>
+<!-- ───────── WORKSHOP ───────── -->
+<section id="workshop" class="sec wrap" data-sec="03 Workshop">
+  <div class="sh" data-f>
+    <span class="num mono">03 — Workshop</span>
+    <h2>Hyperfocused <em>Engineer</em></h2>
+    <p>My after-hours studio. Each project starts as a problem I actually hit, then ships as something others can use. Built in public, one person, twelve frames so far. Circled frames are live.</p>
+  </div>
 
-                          <p><em>Project 3 - Legal Reporting (Development & maintenance) :</em>
-                                <ol>
-                                    <li>Report programs for the calculation of VAT</li>
-                                    <li>Incash Payments reports, and Subsidies(Spain ­Modulo 340 and 347)</li>
-                                    <li>Portugal Taxation Reports (SAFT)</li>
-                                </ol>
-                          </p>
+  <div class="sheet" data-f>
+    <div class="sprocket"><span>HFE 400</span><span>▸ 1</span><span>▸ 3</span><span>▸ 5</span><span>2026</span></div>
+    <div class="frames" id="frames"></div>
+    <div class="sprocket"><span>▸ 7</span><span>▸ 9</span><span>▸ 11</span><span>HFE 400</span></div>
+  </div>
+  <div class="sheet-foot mono">
+    <span>Contact sheet · 12 exposures</span>
+    <span><a href="https://hyperfocusedengineer.github.io/" target="_blank" rel="noopener">Full studio ↗</a> &nbsp; <a href="https://hyperfocusedengineer.github.io/download/" target="_blank" rel="noopener">Download the apps ↗</a></span>
+  </div>
+</section>
 
-                          <h5><em>Tricon Infotech Pvt. Ltd., Bangalore, India</em></h5>
-                          <p><em>Project 1 - RQMS (Residential Quarter Management System) :</em> Quarter Master Creation, Legacy Data
-                          Upload from Screen Transaction and Reports</p>
+<!-- ───────── SIGNAL ───────── -->
+<section id="signal" class="sec wrap" data-sec="04 Signal">
+  <div class="sh" data-f>
+    <span class="num mono">04 — Signal</span>
+    <h2>Teaching, <em>to learn</em></h2>
+  </div>
+  <div class="signal">
+    <div data-f>
+      <p class="quote">Machine learning and LLMs, from first principles — <em>no math walls, no hand-waving.</em></p>
+      <p class="sub">Every video on Hyperfocused AI is produced end to end by <strong style="color:var(--ink);font-weight:400">HFE Studio</strong>, a local-first pipeline I built: an AI director storyboards and critiques each cut, my machine renders it, Whisper times the captions to my voice.</p>
+      <div class="chips3">
+        <div><b>$0</b><span>render cost per video</span></div>
+        <div><b>40+</b><span>motion components</span></div>
+        <div><b>6</b><span>channels in production</span></div>
+      </div>
+    </div>
+    <div class="links" data-f>
+      <a class="lk" href="https://www.youtube.com/@hyperfocusedai" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z"/></svg></span><span><h4>Hyperfocused AI</h4><p>Weekly explainers on ML, LLMs and PyTorch</p></span><span class="ar">↗</span></a>
+      <a class="lk" href="https://www.youtube.com/playlist?list=PLNIhXsBW3hCU" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z"/></svg></span><span><h4>How LLMs actually work</h4><p>Tokens, embeddings, attention, transformers</p></span><span class="ar">↗</span></a>
+      <a class="lk" href="https://www.youtube.com/playlist?list=PLS7Ebr8tng4Y" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z"/></svg></span><span><h4>ML from scratch, no math</h4><p>Eight episodes for complete beginners</p></span><span class="ar">↗</span></a>
+      <a class="lk" href="https://www.youtube.com/@hyperfocusedengineer" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z"/></svg></span><span><h4>Hyperfocused Engineer · Live</h4><p>Raw, real-time builds: system design, DSA, vibe coding</p></span><span class="ar">↗</span></a>
+    </div>
+  </div>
+</section>
 
-                      </div>
+<!-- ───────── TOOLKIT ───────── -->
+<section id="toolkit" class="sec wrap" data-sec="05 Toolkit">
+  <div class="sh" data-f>
+    <span class="num mono">05 — Toolkit</span>
+    <h2>Lens <em>elements</em></h2>
+  </div>
+  <div class="kit">
+    <div class="r" data-f><span class="mono">Architecture</span><div><b>Temporal orchestration</b><i>/</i>Event-driven systems<i>/</i>Microservices<i>/</i>gRPC<i>/</i>GraphQL<i>/</i>Multi-tenancy</div></div>
+    <div class="r" data-f><span class="mono">Languages</span><div><b>Go</b><i>/</i><b>Java</b><i>/</i>Kotlin<i>/</i>Python<i>/</i>TypeScript<i>/</i>JavaScript<i>/</i>ABAP</div></div>
+    <div class="r" data-f><span class="mono">Cloud</span><div><b>AWS</b><i>/</i>Google Cloud<i>/</i>Kubernetes<i>/</i>Docker<i>/</i>Terraform<i>/</i>CI/CD</div></div>
+    <div class="r" data-f><span class="mono">Data</span><div>PostgreSQL<i>/</i>DynamoDB<i>/</i>Spanner<i>/</i>CockroachDB<i>/</i>Redis<i>/</i>MongoDB<i>/</i>Supabase</div></div>
+    <div class="r" data-f><span class="mono">AI / ML</span><div><b>LLM architecture</b><i>/</i>PyTorch<i>/</i>Claude<i>/</i>Whisper<i>/</i>Agentic tooling</div></div>
+    <div class="r" data-f><span class="mono">Mobile &amp; Web</span><div>React Native<i>/</i>Expo<i>/</i>React<i>/</i>Next.js<i>/</i>Zustand<i>/</i>Remotion</div></div>
+  </div>
+  <div class="edu" data-f>
+    <span class="mono">Education</span>
+    <div><h4>M.S. Computer Science</h4><p>University at Buffalo, SUNY · 2014</p></div>
+    <div><h4>B.E. Engineering</h4><p>Visvesvaraya Technological University · 2010</p></div>
+  </div>
+</section>
 
-	    			  <!-- ===== Fifth Tab ===== -->
-					  <div class="tab-pane" id="contact">
-						  <h4>Contact Information</h4>
-						  <hr>
-						  <div class="row">
-							  <div class="col-xs-6">
-								  <p class="sm">
-								  	<i class="icon-globe"></i> - harshssd.appspot.com <br/>
-									<i class="icon-envelope"></i> - harsh.ssd@gmail.com  
-								  </p>
-							  </div><!-- col-xs-6 -->
-							  
-							  <div class="col-xs-6">
-								  <p class="sm">
-								  	<i class="icon-phone"></i> - 469 648 8107 <br/>
-									<i class="icon-apple"></i> - 469 648 8107  
-								  </p>
-							  </div><!-- col-xs-6 -->
-						  </div><!-- row -->
-						  
-						  <h4>Social Links</h4>
-						  <hr>
-						  <div class="row">
-							  <div class="col-xs-6">
-								  <p class="sm">
-<!--								  	<i class="icon-facebook"></i><a href="https://www.facebook.com/harsh.ssd"> - harsh.ssd </a><br/>-->
-									<i class="icon-linkedin"></i><a href="http://www.linkedin.com/in/harshahs/"> - harshahs</a>  
-								  </p>
-							  </div><!-- col-xs-6 -->
-							  
-							  <div class="col-xs-6">
-								  <p class="sm">
-<!--								  	<i class="icon-linkedin"></i> - Vicoooria <br/>-->
-									<i class="icon-twitter"></i><a href="https://twitter.com/harshssd"> - @harshssd</a>  
-								  </p>
-							  </div><!-- col-xs-6 -->
-						  </div><!-- row -->
-					  </div><!-- Tab Contact -->
-					  
-					</div><!-- Tab Content -->
-    			</div><!-- col-md-8 -->
-    		</div><!-- row w -->
-    	</div><!-- col-lg-6 -->
-    </div><!-- /.container -->
+<!-- ───────── CONTACT ───────── -->
+<section id="contact" class="contact wrap" data-sec="06 Contact">
+  <h2 class="big" data-f>Let's build something<br><em>worth focusing on.</em></h2>
+  <a class="mail" href="mailto:harsh.ssd@gmail.com" data-f>harsh.ssd@gmail.com <span>↗</span></a>
+  <div class="social" data-f>
+    <a class="btn" href="https://www.linkedin.com/in/harshahs/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/harshssd" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://hyperfocusedengineer.github.io/" target="_blank" rel="noopener">Studio</a>
+    <a class="btn" href="https://www.youtube.com/@hyperfocusedai" target="_blank" rel="noopener">YouTube</a>
+    <a class="btn" href="https://x.com/harshssd" target="_blank" rel="noopener">X</a>
+  </div>
+  <footer class="mono">
+    <span>© 2026 Harsha Hassan Somashekara</span>
+    <span>Hand-written HTML · no frameworks · shot at f/1.4</span>
+  </footer>
+</section>
+</main>
 
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-	<script>
-	$('#myTab a').click(function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})	
-	</script>    
-    
-  </body>
+  /* ── Projects (contact sheet) ── */
+  const S = 'https://hyperfocusedengineer.github.io/';
+  const P = [
+    {n:'System Design Arcade', t:'Learning game · iOS + Android', d:'50+ arcade games for the system design interview — now with an AI Arcade on RAG, LLM serving and GPU fleets.', s:'live', sl:'App Store · Play', img:'arcade', u:'system-design-arcade/'},
+    {n:'HyperFit', t:'Strength training · iOS + Watch', d:'Log sets and meals; watch a recruitment-weighted muscle heatmap fill in. No streak shaming.', s:'live', sl:'App Store', img:'hyperfit', u:'hyperfit/'},
+    {n:'Brevn', t:'Focus measurement · iOS', d:'A deep-work timer that checks your reaction time before and after — and tells you if you actually focused.', s:'live', sl:'App Store', img:'brevn', icon:1, u:'brevn/'},
+    {n:'Party Pocket', t:'Party games · iOS', d:'Seven pass-the-phone games and 36 decks. One phone, the whole room.', s:'live', sl:'App Store', img:'party', u:'micro-apps/'},
+    {n:'CORTIS', t:'Context intelligence · on-device AI', d:'Knows who you’re talking to before you do. Live context, surfaced in under 500ms.', s:'dev', sl:'In development', img:'cortis', u:'cortis/'},
+    {n:'HFE Studio', t:'AI video production', d:'An AI director storyboards, your machine renders. $0 per video, six channels running.', s:'beta', sl:'In production', g:'linear-gradient(150deg,#D64545,#2a1110 60%,#E8B44F)', u:'#exhibit-hfestudio'},
+    {n:'ZeroShot Arena', t:'AI engineering · iOS', d:'523 lessons from math foundations to production AI, with an on-device tutor.', s:'beta', sl:'Beta', g:'linear-gradient(150deg,#F97316,#1b0f06 58%,#EAB308)', u:'zeroshot-arena/'},
+    {n:'Broadside', t:'Social composer · mobile', d:'Compose once, dispatch to six platforms, sealed with a wax-stamp ceremony.', s:'dev', sl:'In development', img:'broadside', u:'broadside/'},
+    {n:'Koo', t:'Baby tracking · iOS', d:'Voice logging, WHO growth curves and real-time family sync for new parents.', s:'beta', sl:'TestFlight', img:'koo', u:'koo/'},
+    {n:'Zeroshot', t:'Gamified coding · mobile', d:'Cyberpunk missions from Python to PyTorch, guided by Nova, an AI co-founder.', s:'dev', sl:'MVP', img:'zeroshot', u:'zeroshot/'},
+    {n:'Gumball', t:'AI agent builder · mobile', d:'Describe an agent by voice; get a purpose-built workspace. The UI is the output.', s:'dev', sl:'In development', g:'linear-gradient(150deg,#7C5CFC,#140f24 60%,#FF6B9D)', u:'gumball/'},
+    {n:'TossUp', t:'Cricket auctions · web', d:'Sealed-tender and IPL-style live auctions, with real-time views for every role.', s:'dev', sl:'MVP', g:'linear-gradient(150deg,#10B981,#07160f 60%,#3B82F6)', u:'tossup/'}
+  ];
+  const circle = () => { // a hand-drawn loop: ~1.1 turns, wobbly radius, slight tilt
+    const pts = [], a0 = 3.6 + Math.random()*.6, turns = 2*Math.PI*1.08, n = 64, wob = Math.random()*6;
+    for (let i=0;i<=n;i++){
+      const a = a0 + turns*i/n, r = 1 + Math.sin(a*3 + wob)*.012 + (i/n)*.025, c = Math.cos(a), s = Math.sin(a), e = .28;
+      pts.push([50 + Math.sign(c)*Math.pow(Math.abs(c),e)*48*r, 50 + Math.sign(s)*Math.pow(Math.abs(s),e)*48.5*r]);
+    }
+    let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+    for (let i=1;i<pts.length-1;i++){
+      const mx = (pts[i][0]+pts[i+1][0])/2, my = (pts[i][1]+pts[i+1][1])/2;
+      d += ` Q${pts[i][0].toFixed(1)} ${pts[i][1].toFixed(1)} ${mx.toFixed(1)} ${my.toFixed(1)}`;
+    }
+    return d;
+  };
+  document.getElementById('frames').innerHTML = P.map((p,i) => {
+    const pic = p.img
+      ? `<div class="pic${p.icon?' icon':''}"><img src="assets/shots/${p.img}.webp" alt="${p.n} screenshot" loading="lazy" decoding="async"></div>`
+      : `<div class="pic type" style="--g:${p.g}"><b>${p.n.replace(' ','<br>')}</b></div>`;
+    const pick = p.s==='live';
+    return `<a class="fr${pick?' pick':''}" href="${S}${p.u}" target="_blank" rel="noopener">
+      <span class="fn">${String(i+1).padStart(2,'0')}A</span>
+      ${pic}
+      <div class="meta"><h3>${p.n}</h3><span class="ty">${p.t}</span><p>${p.d}</p><span class="st ${p.s}"><i></i>${p.sl}</span></div>
+      <svg class="pencil" viewBox="0 0 100 100" preserveAspectRatio="none"><path pathLength="1" vector-effect="non-scaling-stroke" d="${circle()}"/></svg>
+      ${pick?'<span class="x">pick</span>':''}
+    </a>`;
+  }).join('');
+
+  /* ── Lens barrel (hero) ── */
+  (() => {
+    const g = [], dist = ['0.3','0.4','0.5','0.7','1','1.5','2','3','5','10','∞'], fs = ['1.4','2','2.8','4','5.6','8','11','16'];
+    let ticks = '';
+    for (let a=0;a<360;a+=3){ const L = a%15===0 ? 16 : 7, r=300; const c=Math.cos(a*Math.PI/180), s_=Math.sin(a*Math.PI/180);
+      ticks += `<line x1="${(c*r).toFixed(1)}" y1="${(s_*r).toFixed(1)}" x2="${(c*(r-L)).toFixed(1)}" y2="${(s_*(r-L)).toFixed(1)}"/>`; }
+    const lab = (arr, r, from, step, size, fill) => arr.map((t,i) => { const a = from + i*step;
+      return `<text transform="rotate(${a}) translate(0 ${-r}) " font-size="${size}" fill="${fill}" text-anchor="middle">${t}</text>`; }).join('');
+    let blades = ''; for (let i=0;i<9;i++) blades += `<path d="M 0 -96 A 96 96 0 0 1 ${(96*Math.sin(.9)).toFixed(1)} ${(-96*Math.cos(.9)).toFixed(1)} L 0 -40 Z" transform="rotate(${i*40})"/>`;
+    document.getElementById('lensSvg').innerHTML = `
+      <g class="spin" fill="none" stroke="#A79F92" stroke-width="1">${ticks}<circle r="300"/><circle r="262" stroke-opacity=".5"/></g>
+      <g class="spin" font-family="Geist Mono,monospace" letter-spacing="2">${lab(dist,272,-75,15,12,'#A79F92')}</g>
+      <g class="spin2" font-family="Geist Mono,monospace" letter-spacing="2"><circle r="232" fill="none" stroke="#6A635B"/><circle r="196" fill="none" stroke="#6A635B" stroke-dasharray="1 5"/>${lab(fs,206,-60,17,11,'#D8954A')}</g>
+      <g fill="none" stroke="#6A635B"><circle r="150"/><circle r="120" stroke="#D8954A" stroke-opacity=".6"/></g>
+      <g class="spin2" fill="rgba(216,149,74,.05)" stroke="rgba(216,149,74,.35)">${blades}</g>
+      <line x1="-326" y1="0" x2="-286" y2="0" stroke="#D8954A"/>`;
+  })();
+
+  /* ── Split name letters for the focus pull ── */
+  let k = 0;
+  document.querySelectorAll('[data-split]').forEach(el => {
+    el.innerHTML = [...el.textContent].map(c => c===' ' ? ' ' : `<span class="ch" style="--i:${k++}">${c}</span>`).join('');
+  });
+
+  /* ── Aperture intro ── */
+  const start = () => root.classList.add('ready');
+  const iris = document.getElementById('iris');
+  let seen = false; try { seen = sessionStorage.getItem('iris') === '1'; } catch(e) {}
+  if (reduce || seen) { iris.classList.add('gone'); start(); }
+  else {
+    try { sessionStorage.setItem('iris','1'); } catch(e) {}
+    const svg = document.getElementById('irisSvg'), NS = 'http://www.w3.org/2000/svg', N = 9;
+    const W = innerWidth, H = innerHeight, cx = W/2, cy = H/2, R = Math.hypot(W,H)/2 + 40, L = R*2.2;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const blades = [];
+    for (let i=0;i<N;i++){
+      const p = document.createElementNS(NS,'path');
+      p.setAttribute('fill', i%2 ? '#141210' : '#0F0D0C');
+      p.setAttribute('stroke', 'rgba(216,149,74,.55)');
+      p.setAttribute('stroke-width', '1');
+      svg.appendChild(p); blades.push(p);
+    }
+    const t = Math.tan(Math.PI/N);
+    const draw = (r, tw) => blades.forEach((p,i) => {
+      const a = i*2*Math.PI/N + tw, c = Math.cos(a), s = Math.sin(a);
+      const pt = (x,y) => `${(cx + x*c - y*s).toFixed(1)} ${(cy + x*s + y*c).toFixed(1)}`;
+      const y0 = -r*t - 1;
+      p.setAttribute('d', `M${pt(r,y0)} L${pt(r,L)} L${pt(L,L)} L${pt(L,y0)} Z`);
+    });
+    const ease = x => x<.5 ? 4*x*x*x : 1 - Math.pow(-2*x+2,3)/2;
+    const D = 1500, HOLD = 260; let t0;
+    draw(0, -0.9);
+    const tick = now => {
+      t0 ??= now;
+      const x = Math.min(1, Math.max(0, (now - t0 - HOLD) / D)), e = ease(x);
+      draw(e*R, -0.9*(1-e));
+      if (x > .55 && !root.classList.contains('ready')) start();
+      if (x < 1) requestAnimationFrame(tick); else iris.classList.add('gone');
+    };
+    requestAnimationFrame(tick);
+    iris.addEventListener('click', () => { iris.classList.add('gone'); start(); });
+  }
+
+  /* ── Clock ── */
+  const clock = document.getElementById('clock');
+  const fmt = new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Los_Angeles'});
+  const setClock = () => clock.textContent = 'SEA ' + fmt.format(new Date());
+  setClock(); setInterval(setClock, 15000);
+
+  /* ── f-stop toggle: f/1.4 shallow focus, f/16 everything sharp ── */
+  const fbtn = document.getElementById('fstop');
+  const setDeep = on => { root.classList.toggle('deep', on); fbtn.textContent = on ? 'f/16' : 'f/1.4'; try{localStorage.setItem('deep', on?'1':'0')}catch(e){} };
+  let deep = false; try { deep = localStorage.getItem('deep')==='1'; } catch(e){}
+  setDeep(deep || reduce);
+  fbtn.addEventListener('click', () => setDeep(!root.classList.contains('deep')));
+
+  /* ── Depth of field + focus readout + lens scale ── */
+  const focusEls = [...document.querySelectorAll('[data-f]')];
+  const secs = [...document.querySelectorAll('[data-sec]')];
+  const navs = [...document.querySelectorAll('[data-nav]')];
+  const nameEl = document.getElementById('focusName'), needle = document.getElementById('needle');
+  let ticking = false, lastSec = '';
+  const update = () => {
+    ticking = false;
+    const vh = innerHeight, c = vh * .5, band = vh * .2, fall = vh * .42;
+    if (!root.classList.contains('deep')) {
+      for (const el of focusEls) {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue;
+        const dist = (r.top <= c && r.bottom >= c) ? 0 : Math.min(Math.abs(r.top - c), Math.abs(r.bottom - c));
+        const d = Math.max(0, Math.min(1, (dist - band) / fall));
+        el.style.setProperty('--d', d.toFixed(3));
+      }
+    }
+    let cur = secs[0];
+    for (const s of secs) if (s.getBoundingClientRect().top < c) cur = s;
+    if (cur.dataset.sec !== lastSec) {
+      lastSec = cur.dataset.sec; nameEl.textContent = lastSec;
+      navs.forEach(a => a.classList.toggle('on', a.dataset.nav === cur.id));
+    }
+    root.style.setProperty('--rot', (scrollY * .06).toFixed(2) + 'deg');
+    const max = document.documentElement.scrollHeight - vh;
+    needle.style.left = (max > 0 ? (scrollY / max) * 149 : 0) + 'px';
+  };
+  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  addEventListener('scroll', req, {passive:true}); addEventListener('resize', req); update();
+
+  /* ── Count-up + grease-pencil reveal on view ── */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target; io.unobserve(el);
+    if (el.classList.contains('fr')) { setTimeout(() => el.classList.add('seen'), 250); return; }
+    const end = +el.dataset.count; if (reduce) { el.textContent = end; return; }
+    const t0 = performance.now(), dur = 1600;
+    const step = now => { const x = Math.min(1,(now-t0)/dur); el.textContent = Math.round(end*(1-Math.pow(1-x,4))); if (x<1) requestAnimationFrame(step); };
+    setTimeout(() => requestAnimationFrame(step), 1400);
+  }), {threshold:.4});
+  document.querySelectorAll('[data-count], .fr.pick').forEach(el => io.observe(el));
+})();
+</script>
+</body>
 </html>
